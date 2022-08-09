@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .head{
@@ -41,6 +42,7 @@
     border-radius: 2rem;
     background-color: white;
     color: var(--colors-);
+    text-transform: uppercase;
 }
 button:active{
     box-shadow: inset 0 0 10px #000000;
