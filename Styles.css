@@ -1,0 +1,47 @@
+:root{
+    font-size: 62.5%;
+    --colors-: #10316B
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-sec{
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+    background-blend-mode: multiply,multiply;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.head{
+    font-size: 7.5rem;
+    color: var(--colors-);
+}
+
+.time{
+    font-size: 5rem;
+    color: var(--colors-)
+}
+.buttons{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn button{
+    width: 20rem;
+    height: 7.5rem;
+    font-size: 5rem;
+    border-radius: 2rem;
+    background-color: white;
+    color: var(--colors-);
+}
+button:active{
+    box-shadow: inset 0 0 10px #000000;
+}
