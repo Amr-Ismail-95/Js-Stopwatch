@@ -2,7 +2,7 @@ const startBtn = document.getElementById("startBtn")
 const stopBtn = document.getElementById("stopBtn")
 const resetBtn = document.getElementById("resetBtn")
 const time = document.getElementById("time")
-let seconds = 0;
+let ms = 0;
 let int = null;
 
 
@@ -14,12 +14,12 @@ resetBtn.addEventListener("click", reset)
 
 
 function timer(){
-    seconds++
+    ms++
     
-    currentSeconds = seconds%60;
-    currentHours = Math.floor(seconds / 3600);
-    currentMins =  Math.floor((seconds - (currentHours * 3600))/60);
-
+    currentMs = ms%100
+    currentHours = Math.floor(ms / 360000)
+    currentMins = Math.floor((ms -(currentHours* 360000))/6000)
+    currentSeconds = Math.floor((ms - (currentHours*360000) - (currentMins*6000))/100)
 
     if(currentSeconds<10){
         currentSeconds = "0"+currentSeconds}
@@ -27,7 +27,9 @@ function timer(){
         currentHours = "0"+currentHours}
     if(currentMins<10){
         currentMins = "0"+currentMins}
-    time.innerHTML = `${currentHours}:${currentMins}:${currentSeconds}`
+    if(currentMs<10){
+        currentMs = "0"+currentMs}
+        time.innerHTML = `${currentHours}:${currentMins}:${currentSeconds}:${currentMs}`
         
         // function concat(x){
         //     if(x<10){x = `0+${x}`}
@@ -43,7 +45,7 @@ function start(){
     if(int){
         return
     }
-    int = setInterval(timer,1000)
+    int = setInterval(timer,10)
 }
 function stop(){
 clearInterval(int)
@@ -51,6 +53,6 @@ clearInterval(int)
 }
 function reset(){
     stop();
-    seconds = 0
-    time.innerHTML = "00:00:00"
+    ms = 0
+    time.innerHTML = "00:00:00:00"
 }
